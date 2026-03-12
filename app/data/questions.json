@@ -1,0 +1,255 @@
+[
+  {
+    "id": 1,
+    "category": "Architecture & Design",
+    "text": "Cuando pensás en un proyecto, ¿qué atrae tu atención primero?",
+    "options": [
+      { "label": "A", "text": "La forma", "scores": { "creativity": 2 } },
+      { "label": "B", "text": "La funcionalidad", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "La estética", "scores": { "creativity": 2 } },
+      { "label": "D", "text": "La integración con el entorno", "scores": { "creativity": 2, "client": 1 } }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Architecture & Design",
+    "text": "¿Qué priorizás al evaluar un espacio?",
+    "options": [
+      { "label": "A", "text": "Luz natural", "scores": { "creativity": 2 } },
+      { "label": "B", "text": "Circulación", "scores": { "management": 2 } },
+      { "label": "C", "text": "Materialidad", "scores": { "precision": 2 } },
+      { "label": "D", "text": "Identidad visual", "scores": { "creativity": 2 } }
+    ]
+  },
+  {
+    "id": 3,
+    "category": "Architecture & Design",
+    "text": "Tu estilo conceptual se acerca más a:",
+    "options": [
+      { "label": "A", "text": "Minimalista", "scores": { "strategy": 2, "management": 1 } },
+      { "label": "B", "text": "Contemporáneo", "scores": { "creativity": 2 } },
+      { "label": "C", "text": "Técnico", "scores": { "precision": 2 } },
+      { "label": "D", "text": "Experimental", "scores": { "innovation": 2, "creativity": 1 } }
+    ]
+  },
+  {
+    "id": 4,
+    "category": "Architecture & Design",
+    "text": "Frente a un desafío estético, tu reacción natural es:",
+    "options": [
+      { "label": "A", "text": "Innovar", "scores": { "innovation": 2, "creativity": 1 } },
+      { "label": "B", "text": "Simplificar", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Buscar equilibrio", "scores": { "management": 2 } },
+      { "label": "D", "text": "Romper el molde", "scores": { "innovation": 2 } }
+    ]
+  },
+  {
+    "id": 5,
+    "category": "Architecture & Design",
+    "text": "Cuando elegís texturas o terminaciones, preferís:",
+    "options": [
+      { "label": "A", "text": "Lo moderno", "scores": { "innovation": 2, "creativity": 1 } },
+      { "label": "B", "text": "Lo clásico", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Lo neutro", "scores": { "management": 2 } },
+      { "label": "D", "text": "Lo audaz", "scores": { "innovation": 2 } }
+    ]
+  },
+  {
+    "id": 6,
+    "category": "Architecture & Design",
+    "text": "¿Qué te inspira más al comenzar un proyecto?",
+    "options": [
+      { "label": "A", "text": "El cliente", "scores": { "client": 2 } },
+      { "label": "B", "text": "El entorno", "scores": { "creativity": 2 } },
+      { "label": "C", "text": "La función", "scores": { "strategy": 2 } },
+      { "label": "D", "text": "La creatividad", "scores": { "creativity": 2, "innovation": 1 } }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "Project Management",
+    "text": "Al iniciar un proyecto, definís primero:",
+    "options": [
+      { "label": "A", "text": "El cronograma", "scores": { "management": 2 } },
+      { "label": "B", "text": "El presupuesto", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "El alcance", "scores": { "strategy": 2, "management": 1 } },
+      { "label": "D", "text": "Los riesgos", "scores": { "strategy": 2 } }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "Project Management",
+    "text": "Tu estilo de liderazgo se basa en:",
+    "options": [
+      { "label": "A", "text": "Organización", "scores": { "management": 2 } },
+      { "label": "B", "text": "Comunicación", "scores": { "client": 2 } },
+      { "label": "C", "text": "Delegación", "scores": { "management": 2 } },
+      { "label": "D", "text": "Resolución rápida", "scores": { "innovation": 2 } }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "Project Management",
+    "text": "Si surge un imprevisto, tu primer impulso es:",
+    "options": [
+      { "label": "A", "text": "Reorganizar", "scores": { "management": 2 } },
+      { "label": "B", "text": "Llamar al equipo", "scores": { "client": 2 } },
+      { "label": "C", "text": "Ajustar el plan", "scores": { "strategy": 2 } },
+      { "label": "D", "text": "Resolverlo vos", "scores": { "innovation": 2, "precision": 1 } }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "Project Management",
+    "text": "En un equipo, sos más:",
+    "options": [
+      { "label": "A", "text": "Coordinador", "scores": { "management": 2, "client": 1 } },
+      { "label": "B", "text": "Ejecutor", "scores": { "precision": 2 } },
+      { "label": "C", "text": "Estratega", "scores": { "strategy": 2 } },
+      { "label": "D", "text": "Motivador", "scores": { "client": 2 } }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "Project Management",
+    "text": "Tu objetivo principal al entregar un proyecto es:",
+    "options": [
+      { "label": "A", "text": "Cumplir plazos", "scores": { "management": 2 } },
+      { "label": "B", "text": "Optimizar recursos", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Maximizar calidad", "scores": { "precision": 2 } },
+      { "label": "D", "text": "Mantener al cliente feliz", "scores": { "client": 2 } }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "Innovation & Technology",
+    "text": "Cuando aparece una tecnología nueva, vos:",
+    "options": [
+      { "label": "A", "text": "La probás", "scores": { "innovation": 2 } },
+      { "label": "B", "text": "La analizás", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "La comparás", "scores": { "strategy": 2, "precision": 1 } },
+      { "label": "D", "text": "Esperás resultados", "scores": { "management": 2 } }
+    ]
+  },
+  {
+    "id": 13,
+    "category": "Innovation & Technology",
+    "text": "¿Qué te entusiasma más de la construcción contemporánea?",
+    "options": [
+      { "label": "A", "text": "Automatización", "scores": { "innovation": 2 } },
+      { "label": "B", "text": "Nuevos materiales", "scores": { "precision": 2, "innovation": 1 } },
+      { "label": "C", "text": "Procesos digitalizados", "scores": { "management": 2, "innovation": 1 } },
+      { "label": "D", "text": "Diseño inteligente", "scores": { "creativity": 2, "strategy": 1 } }
+    ]
+  },
+  {
+    "id": 14,
+    "category": "Innovation & Technology",
+    "text": "En obra, preferís usar:",
+    "options": [
+      { "label": "A", "text": "Sistemas tradicionales", "scores": { "management": 2, "precision": 1 } },
+      { "label": "B", "text": "Materiales de última generación", "scores": { "innovation": 2, "precision": 1 } },
+      { "label": "C", "text": "Herramientas inteligentes", "scores": { "innovation": 2 } },
+      { "label": "D", "text": "Combinaciones innovadoras", "scores": { "innovation": 2, "strategy": 1 } }
+    ]
+  },
+  {
+    "id": 15,
+    "category": "Innovation & Technology",
+    "text": "¿Qué te motiva más a adoptar tecnología?",
+    "options": [
+      { "label": "A", "text": "Eficiencia", "scores": { "management": 2 } },
+      { "label": "B", "text": "Innovación", "scores": { "innovation": 2 } },
+      { "label": "C", "text": "Productividad", "scores": { "strategy": 2 } },
+      { "label": "D", "text": "Diferenciación", "scores": { "creativity": 2, "innovation": 1 } }
+    ]
+  },
+  {
+    "id": 16,
+    "category": "Innovation & Technology",
+    "text": "Frente a un desafío técnico, te definís como:",
+    "options": [
+      { "label": "A", "text": "Explorador", "scores": { "innovation": 2 } },
+      { "label": "B", "text": "Analítico", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Práctico", "scores": { "management": 2 } },
+      { "label": "D", "text": "Audaz", "scores": { "innovation": 2, "precision": 1 } }
+    ]
+  },
+  {
+    "id": 17,
+    "category": "Innovation & Technology",
+    "text": "La tendencia que más te interesa es:",
+    "options": [
+      { "label": "A", "text": "Construcción sustentable", "scores": { "strategy": 2, "innovation": 1, "creativity": 1 } },
+      { "label": "B", "text": "IA / automatización", "scores": { "innovation": 2 } },
+      { "label": "C", "text": "BIM", "scores": { "strategy": 2, "management": 1 } },
+      { "label": "D", "text": "Nuevos sistemas constructivos", "scores": { "innovation": 2, "precision": 1 } }
+    ]
+  },
+  {
+    "id": 18,
+    "category": "Client Experience & Relationship",
+    "text": "Con un cliente nuevo, priorizás:",
+    "options": [
+      { "label": "A", "text": "Escuchar", "scores": { "client": 2 } },
+      { "label": "B", "text": "Entender el proyecto", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Generar confianza", "scores": { "client": 2, "management": 1 } },
+      { "label": "D", "text": "Alinear expectativas", "scores": { "strategy": 2, "client": 1 } }
+    ]
+  },
+  {
+    "id": 19,
+    "category": "Client Experience & Relationship",
+    "text": "¿Cómo resolvés una diferencia de opinión?",
+    "options": [
+      { "label": "A", "text": "Negociando", "scores": { "client": 2 } },
+      { "label": "B", "text": "Proponiendo alternativas", "scores": { "innovation": 2 } },
+      { "label": "C", "text": "Fundamento técnico", "scores": { "precision": 2, "strategy": 1 } },
+      { "label": "D", "text": "Datos y evidencia", "scores": { "strategy": 2 } }
+    ]
+  },
+  {
+    "id": 20,
+    "category": "Client Experience & Relationship",
+    "text": "Tu enfoque natural es:",
+    "options": [
+      { "label": "A", "text": "Empatía", "scores": { "client": 2 } },
+      { "label": "B", "text": "Claridad", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Pensamiento estratégico", "scores": { "strategy": 2, "management": 1 } },
+      { "label": "D", "text": "Resolver rápido", "scores": { "innovation": 2 } }
+    ]
+  },
+  {
+    "id": 21,
+    "category": "Client Experience & Relationship",
+    "text": "Preferís comunicar avances mediante:",
+    "options": [
+      { "label": "A", "text": "Reuniones breves", "scores": { "client": 2 } },
+      { "label": "B", "text": "Informes", "scores": { "management": 2 } },
+      { "label": "C", "text": "Llamadas directas", "scores": { "client": 2 } },
+      { "label": "D", "text": "Mensajes claros y frecuentes", "scores": { "client": 2, "management": 1 } }
+    ]
+  },
+  {
+    "id": 22,
+    "category": "Client Experience & Relationship",
+    "text": "Lo que más valorás en un equipo es:",
+    "options": [
+      { "label": "A", "text": "Confianza", "scores": { "client": 2 } },
+      { "label": "B", "text": "Roles complementarios", "scores": { "management": 2 } },
+      { "label": "C", "text": "Transparencia", "scores": { "strategy": 2 } },
+      { "label": "D", "text": "Proactividad", "scores": { "innovation": 2 } }
+    ]
+  },
+  {
+    "id": 23,
+    "category": "Client Experience & Relationship",
+    "text": "En una negociación sos:",
+    "options": [
+      { "label": "A", "text": "Quien escucha", "scores": { "client": 2 } },
+      { "label": "B", "text": "Quien argumenta", "scores": { "strategy": 2 } },
+      { "label": "C", "text": "Quien analiza", "scores": { "strategy": 2 } },
+      { "label": "D", "text": "Quien resuelve rápido", "scores": { "innovation": 2 } }
+    ]
+  }
+]
