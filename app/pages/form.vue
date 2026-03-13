@@ -1,16 +1,16 @@
 <template>
-    <main class="flex flex-col items-center px-6 py-8 gap-6 min-h-screen">
-        <div class="flex flex-col items-center gap-1 text-center">
-            <h1 class="text-2xl font-bold">¡Hola! 👋</h1>
-            <p class="text-sm text-gray-dark">Contanos un poco sobre vos</p>
+    <main class="min-h-screen flex flex-col items-center gap-4 px-6 md:px-8 py-8 md:py-12">
+        <div class="flex flex-col items-center md:gap-1 text-center">
+            <h1 class="text-xl md:text-4xl font-bold uppercase">¡Hola! 👋</h1>
+            <p class="text-xs md:text-xl font-medium">Contanos un poco sobre vos</p>
         </div>
 
-        <form @submit.prevent="handleSubmit" class="flex flex-col gap-4 w-full">
+        <form @submit.prevent="handleSubmit" class="w-full flex flex-col gap-4">
             <FormTextField id="nombre" v-model="form.nombre" placeholder="Nombre completo"
                 icon="material-symbols:person-outline" :error="errors.nombre" />
 
-            <FormTextField id="correo" v-model="form.correo" placeholder="Correo electrónico"
-                type="email" icon="material-symbols:mail-outline" :error="errors.correo" />
+            <FormTextField id="correo" v-model="form.correo" placeholder="Correo electrónico" type="email"
+                icon="material-symbols:mail-outline" :error="errors.correo" />
 
             <FormTextField id="profesion" v-model="form.profesion" placeholder="Profesión"
                 icon="material-symbols:work-outline" :error="errors.profesion" />
@@ -18,7 +18,7 @@
             <FormTextField id="ciudad" v-model="form.ciudad" placeholder="Ciudad"
                 icon="material-symbols:location-on-outline" :error="errors.ciudad" />
 
-            <p class="text-xs text-gray-dark text-center mt-1">
+            <p class="text-xs md:text-base text-gray-dark text-center">
                 Tus datos serán utilizados únicamente para la experiencia del evento.
             </p>
 
@@ -26,7 +26,7 @@
                 {{ loading ? 'Cargando...' : 'Continuar' }}
             </ButtonPrimary>
 
-            <p v-if="submitError" class="text-error text-xs text-center">{{ submitError }}</p>
+            <p v-if="submitError" class="text-error text-xs md:text-base text-center">{{ submitError }}</p>
         </form>
     </main>
 </template>

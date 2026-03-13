@@ -1,14 +1,13 @@
 <template>
     <button
-        class="w-full text-left rounded-2xl border-2 px-4 py-3 flex items-center gap-3 transition-all duration-200 active:scale-95"
-        :class="selected ? 'border-primary bg-primary20' : 'border-primary20 bg-primary20/30'"
-        @click="$emit('select')">
+        class="w-full flex items-center gap-3 border rounded-xl text-left py-3 md:py-4 px-4 md:px-5 transition-all duration-200 active:scale-95"
+        :class="selected ? 'border-dark bg-primary' : 'border-primary bg-primary20'" @click="$emit('select')">
         <span
-            class="w-8 h-8 flex-shrink-0 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-200"
+            class="w-6 md:w-7 h-6 md:h-7 flex items-center justify-center flex-shrink-0 rounded-full text-xs md:text-base font-semibold transition-all duration-200"
             :class="selected ? 'bg-dark text-primary' : 'bg-primary text-dark'">
             {{ label }}
         </span>
-        <span class="text-sm font-medium text-dark">{{ text }}</span>
+        <span class="text-sm md:text-xl">{{ text }}</span>
     </button>
 </template>
 

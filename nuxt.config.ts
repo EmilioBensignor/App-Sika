@@ -36,10 +36,20 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap' },
       ]
     }
   },
   fonts: {
+    families: [
+      {
+        name: 'Saira',
+        provider: 'google',
+        weights: [300, 400, 500, 600, 700, 800],
+      }
+    ],
     defaults: {
       weights: [300, 400, 500, 600, 700, 800],
     }
@@ -50,5 +60,17 @@ export default defineNuxtConfig({
   },
   supabase: {
     redirect: false,
+    redirectOptions: {
+      login: '/login',
+      callback: '/callback',
+      exclude: ['/', '/form', '/quiz', '/loading', '/resultado'],
+    },
+    clientOptions: {
+      auth: {
+        persistSession: true,
+        detectSessionInUrl: true,
+        autoRefreshToken: true,
+      }
+    },
   },
 })

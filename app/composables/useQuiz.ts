@@ -83,7 +83,6 @@ export function useQuiz() {
     } else if (top === 'creativity' && (second === 'innovation' || second === 'strategy')) {
       archetype = 'visionario-urbano'
     } else {
-      // Dot-product fallback
       const traits: TraitKey[] = ['creativity', 'precision', 'management', 'innovation', 'strategy', 'client']
       const maxScore = Math.max(...Object.values(scores))
       const normalized = Object.fromEntries(
@@ -112,7 +111,7 @@ export function useQuiz() {
   }
 
   return {
-    state: computed(() => state.value),
+    state,
     hasUserData,
     hasResult,
     setUserData,

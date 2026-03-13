@@ -101,7 +101,7 @@ const containerClasses = computed(() => {
 
 const iconClasses = computed(() => {
     const base = 'w-6 h-6 absolute left-4 top-1/2 transform -translate-y-1/2'
-    const color = props.iconClass || 'text-gray-dark'
+    const color = props.iconClass || 'text-primary'
     return `${base} ${color}`
 })
 
@@ -117,16 +117,13 @@ const isFilled = computed(() => !!props.modelValue)
 const borderClass = computed(() => {
     if (props.error) return 'border-error'
     if (isFilled.value) return 'border-primary'
-    return 'border-secondary'
+    return 'border-gray-dark'
 })
 
 const inputClasses = computed(() => {
-    const baseClasses = `w-full h-12 bg-light border ${borderClass.value} ${props.rounded} text-black font-medium py-3 px-4 focus:outline-none focus:none`
+    const baseClasses = `w-full h-12 md:h-16 bg-light border-2 ${borderClass.value} rounded-lg text-dark font-medium py-3 px-4 focus:outline-none`
     const paddingClasses = props.icon || props.personalizedIcon ? 'pl-12' : 'pl-3'
-
-    const textClasses = props.forceMobileLayout
-        ? 'text-xs placeholder:text-black placeholder:text-xs placeholder:font-medium'
-        : 'text-xs md:text-sm placeholder:text-black placeholder:text-xs md:placeholder:text-sm placeholder:font-medium'
+    const textClasses = 'text-sm md:text-xl placeholder:text-gray-dark placeholder:text-sm md:placeholder:text-xl placeholder:font-medium'
 
     return `${baseClasses} ${paddingClasses} ${textClasses}`
 })
