@@ -22,7 +22,7 @@
                 Tus datos serán utilizados únicamente para la experiencia del evento.
             </p>
 
-            <ButtonPrimary type="submit" :disabled="loading" class="w-full mt-2">
+            <ButtonPrimary type="submit" :disabled="loading" class="w-full mt-2 uppercase">
                 {{ loading ? 'Cargando...' : 'Continuar' }}
             </ButtonPrimary>
 

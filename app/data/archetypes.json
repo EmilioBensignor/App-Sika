@@ -1,40 +1,44 @@
 [
   {
     "id": "visionario-urbano",
+    "emoji": "🏙️",
     "name": "Visionario Urbano",
     "englishName": "Urban Visionary",
-    "claim": "Diseño con impacto real.",
-    "description": "Profesional creativo, conceptual y con fuerte mirada de futuro. Integra estética, innovación y contexto para imaginar nuevas soluciones dentro de la construcción.",
+    "claim": "El futuro se diseña hoy",
+    "description": "Sos un profesional creativo, conceptual y con fuerte mirada de futuro. Integras estética, innovación y contexto para imaginar nuevas soluciones dentro de la construcción",
     "dominantTraits": ["creativity", "innovation", "strategy"],
     "traitVector": { "creativity": 1.0, "precision": 0.2, "management": 0.2, "innovation": 0.8, "strategy": 0.6, "client": 0.3 },
     "strengths": ["Creatividad", "Innovación", "Estrategia"]
   },
   {
     "id": "arquitecto-estrategico",
+    "emoji": "📐",
     "name": "Arquitecto Estratégico",
     "englishName": "Strategic Architect",
-    "claim": "Cada decisión, un resultado medible.",
-    "description": "Perfil analítico, ordenado y lógico. Planifica con precisión, entiende variables y toma decisiones que optimizan recursos y tiempos.",
+    "claim": "Cada decisión tiene su lógica",
+    "description": "Sos un profesional analítico, ordenado y lógico. Planificás con precisión, entendés las variables y tomás decisiones que optimizan recursos y tiempos.",
     "dominantTraits": ["strategy", "management", "precision"],
     "traitVector": { "creativity": 0.2, "precision": 0.7, "management": 0.8, "innovation": 0.3, "strategy": 1.0, "client": 0.4 },
     "strengths": ["Estrategia", "Gestión", "Precisión"]
   },
   {
     "id": "ingeniero-audaz",
+    "emoji": "⚡",
     "name": "Ingeniero Audaz",
     "englishName": "Bold Engineer",
-    "claim": "Desafío aceptado. Solución entregada.",
-    "description": "Técnico, práctico, rápido y resolutivo. Enfrenta desafíos complejos con soluciones innovadoras y eficientes.",
+    "claim": "Los problemas son oportunidades",
+    "description": "Sos un profesional técnico, práctico, rápido y resolutivo. Enfrentás desafíos complejos con soluciones innovadoras y eficientes.",
     "dominantTraits": ["innovation", "precision", "strategy"],
     "traitVector": { "creativity": 0.3, "precision": 0.8, "management": 0.4, "innovation": 1.0, "strategy": 0.7, "client": 0.2 },
     "strengths": ["Innovación", "Precisión", "Estrategia"]
   },
   {
     "id": "constructor-metodico",
+    "emoji": "📋",
     "name": "Constructor Metódico",
     "englishName": "Methodical Builder",
-    "claim": "Proceso sólido, obra impecable.",
-    "description": "Organizado, consistente y orientado a procesos. Asegura calidad y cumplimiento mediante orden y control.",
+    "claim": "Cada paso cuenta",
+    "description": "Sos un profesional organizado, consistente y orientado a procesos. Asegurás calidad y cumplimiento mediante el orden y el control.",
     "dominantTraits": ["management", "precision", "strategy"],
     "traitVector": { "creativity": 0.1, "precision": 0.9, "management": 1.0, "innovation": 0.2, "strategy": 0.7, "client": 0.5 },
     "strengths": ["Gestión", "Precisión", "Estrategia"]

@@ -1,9 +1,10 @@
 <template>
-    <main class="min-h-[90vh] flex flex-col items-center gap-4 md:gap-8 px-5 md:px-8 py-8 md:py-12">
+    <main class="min-h-[90vh] flex flex-col items-center gap-6 md:gap-12 px-5 md:px-8 py-8 md:py-12">
         <p class="text-xs md:text-2xl text-gray-dark">{{ quiz.state.value.userData?.nombre }}, sos un...</p>
-        <div class="flex flex-col items-center text-center gap-2">
-            <div class="w-12 md:w-16 h-12 md:h-16 bg-primary20 rounded-2xl flex items-center justify-center">
-                <Icon name="material-symbols:star" class="w-7 md:w-8 h-7 md:h-8 text-primary" />
+        <div class="flex flex-col items-center text-center gap-4">
+            <div
+                class="w-12 md:w-16 h-12 md:h-16 bg-primary20 rounded-2xl flex items-center justify-center text-3xl md:text-4xl">
+                {{ archetype.emoji }}
             </div>
 
             <h1 class="text-2xl md:text-4xl font-extrabold uppercase text-primary">
@@ -17,7 +18,7 @@
                 {{ archetype.description }}
             </p>
         </div>
-        <div class="w-full flex flex-col items-center gap-3">
+        <div class="w-full flex flex-col items-center gap-4 md:gap-6">
             <p class="text-xs md:text-xl text-gray-dark font-bold uppercase">Tus fortalezas</p>
             <div class="flex flex-wrap justify-center gap-2">
                 <span v-for="strength in archetype.strengths" :key="strength"
@@ -73,6 +74,7 @@ definePageMeta({ middleware: 'result-guard' })
 
 const quiz = useQuiz()
 const client = useSupabaseClient()
+const { playSound } = useSound()
 const showShareModal = ref(false)
 
 const archetype = computed(() => {
@@ -86,6 +88,7 @@ onMounted(async () => {
             .update({ resultado: quiz.state.value.archetype })
             .eq('id', quiz.state.value.userId)
     }
+    playSound('resultado')
 })
 
 function handleDownload() {

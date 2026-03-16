@@ -6,7 +6,7 @@
                 <div class="flex items-center justify-between gap-2 text-xs md:text-xl text-gray-dark">
                     <span class="flex-shrink-0">Pregunta {{ currentIndex + 1 }} de {{ questions.length }}</span>
                     <div class="flex items-center gap-1">
-                        <Icon name="material-symbols:category-outline" class="w-4 md:w-5 h-4 md:h-5" />
+                        <span>{{ categoryEmoji[currentQuestion.category] }}</span>
                         <span>{{ currentQuestion.category }}</span>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                 <div class="flex flex-col gap-2 md:gap-5">
                     <QuizAnswerOption v-for="option in currentQuestion.options" :key="option.label"
                         :label="option.label" :text="option.text" :selected="selectedOption === option.label"
-                        @select="selectedOption = option.label" />
+                        @select="handleSelect(option.label)" />
                 </div>
             </div>
         </div>
@@ -37,12 +37,25 @@ import questionsData from '~/data/questions.json'
 definePageMeta({ middleware: 'quiz-guard' })
 
 const quiz = useQuiz()
+const { playSound } = useSound()
 const questions = questionsData
 const currentIndex = computed(() => quiz.state.value.currentQuestion)
 
 const currentQuestion = computed(() => questions[currentIndex.value])
 const isLastQuestion = computed(() => currentIndex.value === questions.length - 1)
 const selectedOption = ref(null)
+
+const categoryEmoji = {
+    'Architecture & Design': '🏛️',
+    'Project Management': '📊',
+    'Innovation & Technology': '⚡',
+    'Client Experience & Relationship': '🤝',
+}
+
+function handleSelect(label) {
+    selectedOption.value = label
+    playSound('seleccion')
+}
 
 async function handleNext() {
     if (!selectedOption.value) return
