@@ -58,6 +58,11 @@ export default defineNuxtConfig({
     provider: 'iconify',
     collections: ['material-symbols']
   },
+  vite: {
+    optimizeDeps: {
+      include: ['html2canvas', 'qrcode'],
+    },
+  },
   supabase: {
     redirect: false,
     redirectOptions: {

@@ -31,10 +31,10 @@
 
             <div class="w-full flex flex-col gap-6 md:gap-8">
                 <div class="w-full flex items-center gap-3">
-                    <ButtonPrimary @click="handleDownload"
+                    <ButtonPrimary @click="handleDownload" :disabled="isCapturing"
                         class="w-1/2 flex justify-center items-center gap-2 md:gap-3 bg-transparent border border-primary text-xs uppercase px-5">
                         <Icon name="material-symbols:download" class="w-4 md:w-6 h-4 md:h-6 flex-shrink-0" />
-                        Descargar
+                        {{ isCapturing ? '...' : 'Descargar' }}
                     </ButtonPrimary>
                     <ButtonPrimary @click="showShareModal = true"
                         class="w-1/2 flex justify-center items-center gap-2 md:gap-3 bg-transparent border border-primary text-xs uppercase px-5">
@@ -62,7 +62,26 @@
             Volver a jugar
         </button>
     </main>
-    <ResultadoShareModal v-if="showShareModal" :archetype="archetype" @close="showShareModal = false" />
+
+    <ResultadoShareModal
+        v-if="showShareModal"
+        :archetype="archetype"
+        :capture-card="captureFullCard"
+        @close="showShareModal = false"
+    />
+
+    <!-- Off-screen ResultCard for html2canvas capture -->
+    <div
+        ref="captureContainerRef"
+        style="position: fixed; left: -9999px; top: 0; pointer-events: none;"
+        aria-hidden="true"
+    >
+        <ResultadoResultCard
+            :archetype="archetype"
+            :user-name="quiz.state.value.userData?.nombre ?? ''"
+            variant="full"
+        />
+    </div>
 </template>
 
 <script setup>
@@ -74,7 +93,10 @@ definePageMeta({ middleware: 'result-guard' })
 const quiz = useQuiz()
 const client = useSupabaseClient()
 const { playSound } = useSound()
+const { captureElement, shareImage, downloadImage } = useImageCapture()
 const showShareModal = ref(false)
+const isCapturing = ref(false)
+const captureContainerRef = ref(null)
 
 const archetype = computed(() => {
     return archetypesData.find(a => a.id === quiz.state.value.archetype) ?? archetypesData[0]
@@ -90,8 +112,22 @@ onMounted(async () => {
     playSound('resultado')
 })
 
-function handleDownload() {
-    console.log('download result')
+async function captureFullCard() {
+    const cardEl = captureContainerRef.value?.firstElementChild
+    if (!cardEl) throw new Error('Card element not found')
+    return captureElement(cardEl, 1080, 1920)
+}
+
+async function handleDownload() {
+    isCapturing.value = true
+    try {
+        const blob = await captureFullCard()
+        await shareImage(blob, `arquetipo-${archetype.value.id}.png`)
+    } catch (e) {
+        console.error('Download error:', e)
+    } finally {
+        isCapturing.value = false
+    }
 }
 
 function handlePremio() {
