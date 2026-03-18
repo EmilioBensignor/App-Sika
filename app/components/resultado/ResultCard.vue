@@ -91,7 +91,7 @@
                 <p style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; width: 100%;">
+                <div style="display: block; text-align: center; width: 100%;">
                     <span
                         v-for="strength in archetype.strengths"
                         :key="strength"
@@ -104,6 +104,7 @@
                             padding: 10px 36px 10px 10px;
                             font-size: 32px;
                             font-weight: 500;
+                            margin: 8px;
                         "
                     >
                         <span style="
