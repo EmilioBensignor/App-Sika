@@ -5,7 +5,6 @@ export function useImageCapture() {
         const canvas = await html2canvas(el, {
             scale: 1,
             useCORS: true,
-            allowTaint: true,
             width,
             height,
             backgroundColor: '#FEFEFE',
@@ -18,20 +17,32 @@ export function useImageCapture() {
 
     function downloadImage(blob: Blob, filename: string): void {
         const url = URL.createObjectURL(blob)
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+        if (isIOS) {
+            window.open(url, '_blank')
+            return
+        }
         const a = document.createElement('a')
         a.href = url
         a.download = filename
+        document.body.appendChild(a)
         a.click()
+        document.body.removeChild(a)
         setTimeout(() => URL.revokeObjectURL(url), 1000)
     }
 
     async function shareImage(blob: Blob, filename: string): Promise<void> {
         const file = new File([blob], filename, { type: 'image/png' })
-        if (navigator.canShare?.({ files: [file] })) {
-            await navigator.share({ files: [file], title: 'Mi resultado Sika' })
-        } else {
-            downloadImage(blob, filename)
+        if (navigator.share) {
+            try {
+                await navigator.share({ files: [file], title: 'Mi resultado Sika' })
+                return
+            } catch (e) {
+                if ((e as Error).name === 'AbortError') return
+                // files not supported → fall through to download
+            }
         }
+        downloadImage(blob, filename)
     }
 
     return { captureElement, downloadImage, shareImage }

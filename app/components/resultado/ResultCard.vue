@@ -8,7 +8,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         padding: 96px 120px 96px;
         box-sizing: border-box;
         position: relative;
@@ -96,15 +96,14 @@
                         v-for="strength in archetype.strengths"
                         :key="strength"
                         style="
-                            display: inline-flex;
-                            align-items: center;
-                            gap: 14px;
+                            display: inline-block;
                             background-color: rgba(162,162,162,0.2);
                             border-radius: 9999px;
                             padding: 10px 36px 10px 10px;
                             font-size: 32px;
                             font-weight: 500;
                             margin: 8px;
+                            white-space: nowrap;
                         "
                     >
                         <span style="
@@ -112,16 +111,16 @@
                             height: 48px;
                             background-color: #FCC500;
                             border-radius: 50%;
-                            display: inline-flex;
-                            align-items: center;
-                            justify-content: center;
-                            flex-shrink: 0;
+                            display: inline-block;
+                            vertical-align: middle;
+                            text-align: center;
+                            line-height: 48px;
                         ">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: inline-block; vertical-align: middle; margin-top: -2px;">
                                 <path d="M5 13l4 4L19 7" stroke="#161616" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
-                        {{ strength }}
+                        <span style="display: inline-block; vertical-align: middle; margin-left: 14px;">{{ strength }}</span>
                     </span>
                 </div>
             </div>

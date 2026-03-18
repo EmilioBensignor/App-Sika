@@ -73,7 +73,7 @@
     <!-- Off-screen ResultCard for html2canvas capture -->
     <div
         ref="captureContainerRef"
-        style="position: fixed; left: -9999px; top: 0; pointer-events: none;"
+        style="position: absolute; left: -9999px; top: 0; pointer-events: none;"
         aria-hidden="true"
     >
         <ResultadoResultCard
