@@ -104,7 +104,7 @@ async function getBlob(): Promise<Blob | null> {
 
 async function handleDownload() {
     const blob = await getBlob()
-    if (blob) downloadImage(blob, `arquetipo-${props.archetype.id}.png`)
+    if (blob) await shareImage(blob, `arquetipo-${props.archetype.id}.png`)
 }
 
 async function handleShare(_platform: string) {

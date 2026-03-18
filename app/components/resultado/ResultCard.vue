@@ -9,7 +9,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding: 96px 80px 96px;
+        padding: 96px 120px 96px;
         box-sizing: border-box;
         position: relative;
         overflow: hidden;
@@ -21,20 +21,20 @@
                 src="/images/Logo-Sika.svg"
                 alt="Sika"
                 crossorigin="anonymous"
-                style="height: 80px; width: auto; object-fit: contain;"
+                style="height: 120px; width: auto; object-fit: contain;"
             />
             <div style="display: flex; align-items: center; gap: 32px;">
                 <img
                     src="/images/Logo-Klaukol.svg"
                     alt="Klaukol"
                     crossorigin="anonymous"
-                    style="height: 36px; width: auto; object-fit: contain;"
+                    style="height: 54px; width: auto; object-fit: contain;"
                 />
                 <img
                     src="/images/Logo-Revear.svg"
                     alt="Revear"
                     crossorigin="anonymous"
-                    style="height: 36px; width: auto; object-fit: contain;"
+                    style="height: 54px; width: auto; object-fit: contain;"
                 />
             </div>
         </div>
@@ -91,7 +91,7 @@
                 <p style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; width: 100%;">
                     <span
                         v-for="strength in archetype.strengths"
                         :key="strength"
