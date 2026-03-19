@@ -72,39 +72,15 @@
                     style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: flex; justify-content: center; align-items: center; width: 100%; flex-wrap: wrap; margin-top: 12px;">
-                    <span v-for="strength in archetype.strengths" :key="strength" style="
-                            display: flex;
-                            align-items: center;
-                            background-color: rgba(162,162,162,0.2);
-                            border-radius: 9999px;
-                            padding: 10px 36px 10px 10px;
-                            font-size: 32px;
-                            font-weight: 500;
-                            white-space: nowrap;
-                            margin: 0 8px 16px 8px;
-                            height: 68px;
-                            box-sizing: border-box;
-                            position: relative;
-                        ">
-                        <span style="
-                            width: 48px;
-                            height: 48px;
-                            min-width: 48px;
-                            min-height: 48px;
-                            background-color: #FCC500;
-                            border-radius: 50%;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                        ">
+                <div style="display: flex; justify-content: center; gap: 48px; width: 100%;">
+                    <div v-for="strength in archetype.strengths" :key="strength" style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+                        <span style="width: 48px; height: 48px; background-color: #FCC500; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 13l4 4L19 7" stroke="#161616" stroke-width="2.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                <path d="M5 13l4 4L19 7" stroke="#161616" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </span>
-                        <span style=" position: absolute; top: 50%; right: 14px;">{{ strength }}</span>
-                    </span>
+                        <span style="font-size: 28px; font-weight: 500;">{{ strength }}</span>
+                    </div>
                 </div>
             </div>
         </div>
