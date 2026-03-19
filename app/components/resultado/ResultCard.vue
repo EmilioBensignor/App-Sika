@@ -3,6 +3,7 @@
         background-color: #FEFEFE;
         color: #161616;
         font-family: 'Saira', sans-serif;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -13,7 +14,8 @@
         overflow: hidden;
         gap: 64px;
     ">
-        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 16px;">
+        <div
+            style="display: flex; justify-content: center; flex-direction: column; align-items: center; margin-bottom: 16px;">
             <img src="/images/resultado/Logo-Sika.png" alt="Sika" crossorigin="anonymous" width="100" height="100"
                 style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 16px;" />
             <div style="display: flex; align-items: center;">
@@ -32,7 +34,8 @@
                 {{ userName }}, sos un...
             </p>
 
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
+            <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;">
                 <p style="font-size: 140px; line-height: 1; margin: 0;">{{ archetype.emoji }}</p>
 
                 <h1 style="
