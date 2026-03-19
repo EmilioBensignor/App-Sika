@@ -1,21 +1,22 @@
 <template>
     <div style="
+        width: 1080px;
+        height: 1920px;
         background-color: #FEFEFE;
         color: #161616;
         font-family: 'Saira', sans-serif;
-        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 2rem;
+        padding: 96px 120px 96px;
         box-sizing: border-box;
         position: relative;
         overflow: hidden;
         gap: 64px;
     ">
         <div
-            style="display: flex; justify-content: center; flex-direction: column; align-items: center; margin-bottom: 16px;">
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 16px;">
             <img src="/images/resultado/Logo-Sika.png" alt="Sika" crossorigin="anonymous" width="100" height="100"
                 style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 16px;" />
             <div style="display: flex; align-items: center;">
@@ -27,15 +28,14 @@
         </div>
 
         <div
-            style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 48px; width: 100%;">
+            style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 48px; width: 100%;">
 
             <p v-if="variant === 'full' && userName"
                 style="font-size: 40px; color: #8C8C8C; font-weight: 400; margin: 0;">
                 {{ userName }}, sos un...
             </p>
 
-            <div
-                style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
                 <p style="font-size: 140px; line-height: 1; margin: 0;">{{ archetype.emoji }}</p>
 
                 <h1 style="
@@ -66,21 +66,32 @@
                     ">{{ archetype.description }}</p>
             </div>
 
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
+            <div
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; width: 100%;">
                 <p
                     style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: flex; justify-content: center; gap: 48px; width: 100%;">
-                    <div v-for="strength in archetype.strengths" :key="strength" style="
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%; flex-wrap: wrap; margin-top: 12px;">
+                    <span v-for="strength in archetype.strengths" :key="strength" style="
                             display: flex;
-                            flex-direction: column;
                             align-items: center;
-                            gap: 12px;
+                            background-color: rgba(162,162,162,0.2);
+                            border-radius: 9999px;
+                            padding: 10px 36px 10px 10px;
+                            font-size: 32px;
+                            font-weight: 500;
+                            white-space: nowrap;
+                            margin: 0 8px 16px 8px;
+                            height: 68px;
+                            box-sizing: border-box;
+                            position: relative;
                         ">
                         <span style="
                             width: 48px;
                             height: 48px;
+                            min-width: 48px;
+                            min-height: 48px;
                             background-color: #FCC500;
                             border-radius: 50%;
                             display: flex;
@@ -92,8 +103,8 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </span>
-                        <span style="font-size: 32px; font-weight: 500;">{{ strength }}</span>
-                    </div>
+                        <span style=" position: absolute; top: 50%; right: 14px;">{{ strength }}</span>
+                    </span>
                 </div>
             </div>
         </div>
