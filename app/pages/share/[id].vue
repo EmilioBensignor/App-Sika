@@ -94,7 +94,7 @@
 import { ROUTE_NAMES } from '~/constants/ROUTE_NAMES'
 import archetypesData from '~/data/archetypes.json'
 
-definePageMeta({ layout: 'blank' })
+definePageMeta({ layout: 'default' })
 
 const route = useRoute()
 const { captureElement, shareImage } = useImageCapture()
