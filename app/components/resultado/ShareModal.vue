@@ -58,26 +58,23 @@
     </div>
 </template>
 
-<script setup lang="ts">
-interface Archetype {
-    id: string
-    emoji: string
-    name: string
-    claim: string
-    description: string
-    strengths: string[]
-}
-
-const props = defineProps<{
-    archetype: Archetype
-    captureCard: () => Promise<Blob>
-}>()
+<script setup>
+const props = defineProps({
+    archetype: {
+        type: Object,
+        required: true,
+    },
+    captureCard: {
+        type: Function,
+        required: true,
+    },
+})
 
 defineEmits(['close'])
 
 const { downloadImage, shareImage } = useImageCapture()
 
-const qrDataUrl = ref<string | null>(null)
+const qrDataUrl = ref(null)
 const isCapturing = ref(false)
 
 onMounted(async () => {
@@ -90,7 +87,7 @@ onMounted(async () => {
     })
 })
 
-async function getBlob(): Promise<Blob | null> {
+async function getBlob() {
     isCapturing.value = true
     try {
         return await props.captureCard()
@@ -107,7 +104,7 @@ async function handleDownload() {
     if (blob) await shareImage(blob, `arquetipo-${props.archetype.id}.png`)
 }
 
-async function handleShare(_platform: string) {
+async function handleShare(_platform) {
     const blob = await getBlob()
     if (blob) await shareImage(blob, `arquetipo-${props.archetype.id}.png`)
 }

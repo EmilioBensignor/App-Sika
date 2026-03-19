@@ -17,7 +17,7 @@
     ">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
             <img
-                src="/images/Logo-Sika.svg"
+                src="/images/resultado/Logo-Sika.png"
                 alt="Sika"
                 crossorigin="anonymous"
                 width="200"
@@ -26,7 +26,7 @@
             />
             <div style="display: flex; align-items: center; gap: 48px;">
                 <img
-                    src="/images/Logo-Klaukol.svg"
+                    src="/images/resultado/Logo-Klaukol.png"
                     alt="Klaukol"
                     crossorigin="anonymous"
                     width="369"
@@ -34,7 +34,7 @@
                     style="width: 369px; height: 90px; object-fit: contain;"
                 />
                 <img
-                    src="/images/Logo-Revear.svg"
+                    src="/images/resultado/Logo-Revear.png"
                     alt="Revear"
                     crossorigin="anonymous"
                     width="441"
@@ -91,7 +91,7 @@
                 <p style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: flex; justify-content: center; align-items: center; gap: 16px; width: 100%; flex-wrap: wrap;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%; flex-wrap: wrap;">
                     <span
                         v-for="strength in archetype.strengths"
                         :key="strength"
@@ -104,6 +104,7 @@
                             font-size: 32px;
                             font-weight: 500;
                             white-space: nowrap;
+                            margin: 0 8px 16px 8px;
                         "
                     >
                         <span style="
