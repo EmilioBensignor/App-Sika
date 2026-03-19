@@ -20,20 +20,20 @@
                 src="/images/Logo-Sika.svg"
                 alt="Sika"
                 crossorigin="anonymous"
-                style="height: 120px; width: auto; object-fit: contain;"
+                style="height: 200px; width: auto; object-fit: contain;"
             />
-            <div style="display: flex; align-items: center; gap: 32px;">
+            <div style="display: flex; align-items: center; gap: 48px;">
                 <img
                     src="/images/Logo-Klaukol.svg"
                     alt="Klaukol"
                     crossorigin="anonymous"
-                    style="height: 54px; width: auto; object-fit: contain;"
+                    style="height: 90px; width: auto; object-fit: contain;"
                 />
                 <img
                     src="/images/Logo-Revear.svg"
                     alt="Revear"
                     crossorigin="anonymous"
-                    style="height: 54px; width: auto; object-fit: contain;"
+                    style="height: 90px; width: auto; object-fit: contain;"
                 />
             </div>
         </div>
@@ -103,18 +103,18 @@
                         <span style="
                             width: 48px;
                             height: 48px;
+                            min-width: 48px;
                             background-color: #FCC500;
                             border-radius: 50%;
-                            display: inline-block;
-                            vertical-align: middle;
-                            text-align: center;
-                            line-height: 48px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
                         ">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: inline-block; vertical-align: middle; margin-top: -2px;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 13l4 4L19 7" stroke="#161616" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
-                        <span style="display: inline-block; vertical-align: middle; margin-left: 14px;">{{ strength }}</span>
+                        <span style="margin-left: 14px;">{{ strength }}</span>
                     </span>
                 </div>
             </div>
