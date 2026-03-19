@@ -20,20 +20,26 @@
                 src="/images/Logo-Sika.svg"
                 alt="Sika"
                 crossorigin="anonymous"
-                style="height: 200px; width: auto; object-fit: contain;"
+                width="200"
+                height="200"
+                style="width: 200px; height: 200px; object-fit: contain;"
             />
             <div style="display: flex; align-items: center; gap: 48px;">
                 <img
                     src="/images/Logo-Klaukol.svg"
                     alt="Klaukol"
                     crossorigin="anonymous"
-                    style="height: 90px; width: auto; object-fit: contain;"
+                    width="369"
+                    height="90"
+                    style="width: 369px; height: 90px; object-fit: contain;"
                 />
                 <img
                     src="/images/Logo-Revear.svg"
                     alt="Revear"
                     crossorigin="anonymous"
-                    style="height: 90px; width: auto; object-fit: contain;"
+                    width="441"
+                    height="90"
+                    style="width: 441px; height: 90px; object-fit: contain;"
                 />
             </div>
         </div>
