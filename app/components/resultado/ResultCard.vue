@@ -1,7 +1,5 @@
 <template>
     <div style="
-        width: 1080px;
-        height: 1920px;
         background-color: #FEFEFE;
         color: #161616;
         font-family: 'Saira', sans-serif;
@@ -9,7 +7,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 96px 120px 96px;
+        padding: 2rem;
         box-sizing: border-box;
         position: relative;
         overflow: hidden;
@@ -70,26 +68,16 @@
                     style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: flex; justify-content: center; align-items: center; width: 100%; flex-wrap: wrap;">
-                    <span v-for="strength in archetype.strengths" :key="strength" style="
+                <div style="display: flex; justify-content: center; gap: 48px; width: 100%;">
+                    <div v-for="strength in archetype.strengths" :key="strength" style="
                             display: flex;
+                            flex-direction: column;
                             align-items: center;
-                            background-color: rgba(162,162,162,0.2);
-                            border-radius: 9999px;
-                            padding: 10px 36px 10px 10px;
-                            font-size: 32px;
-                            font-weight: 500;
-                            white-space: nowrap;
-                            margin: 0 8px 16px 8px;
-                            height: 68px;
-                            box-sizing: border-box;
-                            position: relative;
+                            gap: 12px;
                         ">
                         <span style="
                             width: 48px;
                             height: 48px;
-                            min-width: 48px;
-                            min-height: 48px;
                             background-color: #FCC500;
                             border-radius: 50%;
                             display: flex;
@@ -101,8 +89,8 @@
                                     stroke-linejoin="round" />
                             </svg>
                         </span>
-                        <span style=" position: absolute; top: 50%; right: 14px;">{{ strength }}</span>
-                    </span>
+                        <span style="font-size: 32px; font-weight: 500;">{{ strength }}</span>
+                    </div>
                 </div>
             </div>
         </div>
