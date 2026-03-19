@@ -1,128 +1,130 @@
 <template>
+    <main v-if="!archetype" class="flex flex-col justify-center items-center gap-4 px-5 py-8 min-h-dvh">
+        <p class="text-xs md:text-2xl text-gray-dark">Arquetipo no encontrado.</p>
+        <NuxtLink to="/" class="text-primary text-sm md:text-xl font-semibold">
+            Volver al inicio
+        </NuxtLink>
+    </main>
+
+    <main v-else class="flex flex-col justify-between items-center gap-6 md:gap-12 px-5 md:px-8 py-8 md:py-12">
+        <div class="main flex flex-col items-center gap-8 md:gap-12">
+            <p class="text-xs md:text-2xl text-gray-dark">Descubrí tu arquetipo...</p>
+            <div class="flex flex-col items-center text-center gap-4">
+                <p class="text-[2.5rem]">{{ archetype.emoji }}</p>
+
+                <h1 class="text-2xl md:text-4xl font-extrabold uppercase text-primary">
+                    {{ archetype.name }}
+                </h1>
+                <p class="text-primary text-xs md:text-2xl font-semibold">
+                    "{{ archetype.claim }}"
+                </p>
+
+                <p class="text-xs md:text-xl text-dark text-center">
+                    {{ archetype.description }}
+                </p>
+            </div>
+            <div class="w-full flex flex-col items-center gap-4 md:gap-6">
+                <p class="text-xs md:text-xl text-gray-dark font-bold uppercase">Tus fortalezas</p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span v-for="strength in archetype.strengths" :key="strength"
+                        class="flex items-center gap-2 bg-secondary20 rounded-full text-xs md:text-xl font-medium p-1 md:p-2 pr-2 md:pr-4">
+                        <div class="w-4 md:w-8 h-4 md:h-8 flex justify-center items-center bg-primary rounded-full">
+                            <Icon name="material-symbols:check" class="w-3 md:w-6 h-3 md:h-6" />
+                        </div>
+                        {{ strength }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="w-full flex flex-col gap-6 md:gap-8">
+                <div class="w-full flex items-center gap-3">
+                    <ButtonPrimary @click="handleDownload" :disabled="isCapturing"
+                        class="w-1/2 flex justify-center items-center gap-2 md:gap-3 bg-transparent border border-primary text-xs uppercase px-5">
+                        <Icon name="material-symbols:download" class="w-4 md:w-6 h-4 md:h-6 flex-shrink-0" />
+                        {{ isCapturing ? '...' : 'Descargar' }}
+                    </ButtonPrimary>
+                    <ButtonPrimary @click="showShareModal = true"
+                        class="w-1/2 flex justify-center items-center gap-2 md:gap-3 bg-transparent border border-primary text-xs uppercase px-5">
+                        <Icon name="material-symbols:share-outline" class="w-4 md:w-6 h-4 md:h-6" />
+                        Compartir
+                    </ButtonPrimary>
+                </div>
+
+                <div class="flex flex-col gap-3 md:gap-8">
+                    <ButtonPrimary
+                        class="w-full h-9 flex justify-between items-center bg-gradient-primary !rounded-full uppercase !p-1 md:!p-3 !pl-3 md:!pl-8"
+                        @click="handleQuiz">
+                        Descubrí tu arquetipo
+                        <div class="w-7 md:w-12 h-7 md:h-12 flex justify-center items-center bg-primary rounded-full">
+                            <Icon name="material-symbols:play-arrow-rounded"
+                                class="w-4 md:w-8 h-4 md:h-8 flex-shrink-0" />
+                        </div>
+                    </ButtonPrimary>
+                </div>
+            </div>
+        </div>
+        <button @click="handleQuiz"
+            class="footer flex justify-center items-center gap-2 text-sm md:text-[2rem] text-gray-dark font-semibold uppercase">
+            <Icon name="material-symbols:play-arrow-rounded" class="w-5 md:w-7 h-5 md:h-7" />
+            Hacer el quiz
+        </button>
+    </main>
+
+    <ResultadoShareModal
+        v-if="showShareModal"
+        :archetype="archetype"
+        :capture-card="captureFullCard"
+        @close="showShareModal = false"
+    />
+
     <div
-        style="min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; gap: 32px;">
-
-        <div v-if="!archetype" style="color: #FEFEFE; text-align: center; font-family: 'Saira', sans-serif;">
-            <p style="font-size: 20px; color: #8C8C8C;">Arquetipo no encontrado.</p>
-            <NuxtLink to="/" style="color: #FCC500; margin-top: 16px; display: block; font-size: 16px;">
-                Volver al inicio
-            </NuxtLink>
-        </div>
-
-        <template v-else>
-            <div
-                :style="{ transform: `scale(${cardScale})`, transformOrigin: 'top center', marginBottom: `${-(1920 * (1 - cardScale))}px` }">
-                <ResultadoResultCard :archetype="archetype" variant="minimal" />
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 360px;">
-                <button @click="handleShare" :disabled="isCapturing" style="
-                        width: 100%;
-                        height: 48px;
-                        background-color: #FCC500;
-                        color: #161616;
-                        border: none;
-                        border-radius: 9999px;
-                        font-family: 'Saira', sans-serif;
-                        font-size: 14px;
-                        font-weight: 700;
-                        text-transform: uppercase;
-                        letter-spacing: 0.05em;
-                        cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 8px;
-                        opacity: 1;
-                        transition: opacity 0.2s;
-                    " :style="isCapturing ? 'opacity: 0.6; cursor: not-allowed;' : ''">
-                    <svg v-if="!isCapturing" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" stroke="#161616"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    {{ isCapturing ? 'Generando...' : 'Compartir resultado' }}
-                </button>
-
-                <button @click="handleDownload" :disabled="isCapturing" style="
-                        width: 100%;
-                        height: 48px;
-                        background-color: transparent;
-                        color: #FCC500;
-                        border: 1.5px solid #FCC500;
-                        border-radius: 9999px;
-                        font-family: 'Saira', sans-serif;
-                        font-size: 14px;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                        letter-spacing: 0.05em;
-                        cursor: pointer;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 8px;
-                    " :style="isCapturing ? 'opacity: 0.6; cursor: not-allowed;' : ''">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="#FCC500"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    Descargar imagen
-                </button>
-            </div>
-        </template>
-
-        <div v-if="archetype" ref="captureTarget"
-            style="position: absolute; left: -9999px; top: 0; pointer-events: none;" aria-hidden="true">
-            <ResultadoResultCard :archetype="archetype" variant="minimal" />
-        </div>
+        ref="captureContainerRef"
+        style="position: absolute; left: -9999px; top: 0; pointer-events: none;"
+        aria-hidden="true"
+    >
+        <ResultadoResultCard
+            v-if="archetype"
+            :archetype="archetype"
+            variant="full"
+        />
     </div>
 </template>
 
 <script setup>
+import { ROUTE_NAMES } from '~/constants/ROUTE_NAMES'
 import archetypesData from '~/data/archetypes.json'
 
 definePageMeta({ layout: 'blank' })
 
 const route = useRoute()
-const { captureElement, downloadImage, shareImage } = useImageCapture()
+const { captureElement, shareImage } = useImageCapture()
+const showShareModal = ref(false)
+const isCapturing = ref(false)
+const captureContainerRef = ref(null)
 
 const archetype = computed(() =>
     archetypesData.find(a => a.id === route.params.id) ?? null
 )
 
-const cardScale = ref(1)
-const captureTarget = ref(null)
-const isCapturing = ref(false)
+async function captureFullCard() {
+    const cardEl = captureContainerRef.value?.firstElementChild
+    if (!cardEl) throw new Error('Card element not found')
+    return captureElement(cardEl, 1080, 1920)
+}
 
-onMounted(() => {
-    const updateScale = () => {
-        cardScale.value = Math.min(1, (window.innerWidth - 32) / 1080)
-    }
-    updateScale()
-    window.addEventListener('resize', updateScale)
-    onUnmounted(() => window.removeEventListener('resize', updateScale))
-})
-
-async function getBlob() {
-    if (!captureTarget.value || !archetype.value) return null
+async function handleDownload() {
     isCapturing.value = true
     try {
-        const cardEl = captureTarget.value.firstElementChild
-        return await captureElement(cardEl, 1080, 1920)
+        const blob = await captureFullCard()
+        await shareImage(blob, `arquetipo-${archetype.value.id}.png`)
     } catch (e) {
-        console.error('Capture error:', e)
-        return null
+        console.error('Download error:', e)
     } finally {
         isCapturing.value = false
     }
 }
 
-async function handleShare() {
-    const blob = await getBlob()
-    if (blob) await shareImage(blob, `arquetipo-${archetype.value.id}.png`)
-}
-
-async function handleDownload() {
-    const blob = await getBlob()
-    if (blob) downloadImage(blob, `arquetipo-${archetype.value.id}.png`)
+async function handleQuiz() {
+    await navigateTo(ROUTE_NAMES.HOME)
 }
 </script>
