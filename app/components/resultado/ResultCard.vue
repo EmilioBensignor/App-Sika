@@ -96,7 +96,8 @@
                         v-for="strength in archetype.strengths"
                         :key="strength"
                         style="
-                            display: inline-block;
+                            display: flex;
+                            align-items: center;
                             background-color: rgba(162,162,162,0.2);
                             border-radius: 9999px;
                             padding: 10px 36px 10px 10px;
@@ -104,25 +105,26 @@
                             font-weight: 500;
                             white-space: nowrap;
                             margin: 0 8px 16px 8px;
-                            line-height: 48px;
-                            vertical-align: middle;
+                            height: 68px;
+                            box-sizing: border-box;
                         "
                     >
                         <span style="
-                            display: inline-block;
                             width: 48px;
                             height: 48px;
+                            min-width: 48px;
+                            min-height: 48px;
                             background-color: #FCC500;
                             border-radius: 50%;
-                            vertical-align: middle;
-                            text-align: center;
-                            line-height: 48px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
                         ">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="vertical-align: middle;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M5 13l4 4L19 7" stroke="#161616" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
-                        <span style="margin-left: 14px; vertical-align: middle;">{{ strength }}</span>
+                        <span style="margin-left: 14px; padding-top: 4px;">{{ strength }}</span>
                     </span>
                 </div>
             </div>
