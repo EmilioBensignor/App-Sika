@@ -1,7 +1,7 @@
 <template>
-    <div style="min-height: 100dvh; background-color: #161616; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; gap: 32px;">
+    <div
+        style="min-height: 100dvh; background-color: #161616; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; gap: 32px;">
 
-        <!-- Not found -->
         <div v-if="!archetype" style="color: #FEFEFE; text-align: center; font-family: 'Saira', sans-serif;">
             <p style="font-size: 20px; color: #8C8C8C;">Arquetipo no encontrado.</p>
             <NuxtLink to="/" style="color: #FCC500; margin-top: 16px; display: block; font-size: 16px;">
@@ -10,17 +10,13 @@
         </div>
 
         <template v-else>
-            <!-- Visible card scaled to viewport -->
-            <div :style="{ transform: `scale(${cardScale})`, transformOrigin: 'top center', marginBottom: `${-(1920 * (1 - cardScale))}px` }">
+            <div
+                :style="{ transform: `scale(${cardScale})`, transformOrigin: 'top center', marginBottom: `${-(1920 * (1 - cardScale))}px` }">
                 <ResultadoResultCard :archetype="archetype" variant="minimal" />
             </div>
 
-            <!-- Action buttons -->
             <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 360px;">
-                <button
-                    @click="handleShare"
-                    :disabled="isCapturing"
-                    style="
+                <button @click="handleShare" :disabled="isCapturing" style="
                         width: 100%;
                         height: 48px;
                         background-color: #FCC500;
@@ -39,19 +35,15 @@
                         gap: 8px;
                         opacity: 1;
                         transition: opacity 0.2s;
-                    "
-                    :style="isCapturing ? 'opacity: 0.6; cursor: not-allowed;' : ''"
-                >
+                    " :style="isCapturing ? 'opacity: 0.6; cursor: not-allowed;' : ''">
                     <svg v-if="!isCapturing" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" stroke="#161616" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13" stroke="#161616"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     {{ isCapturing ? 'Generando...' : 'Compartir resultado' }}
                 </button>
 
-                <button
-                    @click="handleDownload"
-                    :disabled="isCapturing"
-                    style="
+                <button @click="handleDownload" :disabled="isCapturing" style="
                         width: 100%;
                         height: 48px;
                         background-color: transparent;
@@ -68,30 +60,24 @@
                         align-items: center;
                         justify-content: center;
                         gap: 8px;
-                    "
-                    :style="isCapturing ? 'opacity: 0.6; cursor: not-allowed;' : ''"
-                >
+                    " :style="isCapturing ? 'opacity: 0.6; cursor: not-allowed;' : ''">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="#FCC500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="#FCC500"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     Descargar imagen
                 </button>
             </div>
         </template>
 
-        <!-- Off-screen capture target: full 1080x1920, no transform -->
-        <div
-            v-if="archetype"
-            ref="captureTarget"
-            style="position: absolute; left: -9999px; top: 0; pointer-events: none;"
-            aria-hidden="true"
-        >
+        <div v-if="archetype" ref="captureTarget"
+            style="position: absolute; left: -9999px; top: 0; pointer-events: none;" aria-hidden="true">
             <ResultadoResultCard :archetype="archetype" variant="minimal" />
         </div>
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import archetypesData from '~/data/archetypes.json'
 
 definePageMeta({ layout: 'blank' })
@@ -100,11 +86,11 @@ const route = useRoute()
 const { captureElement, downloadImage, shareImage } = useImageCapture()
 
 const archetype = computed(() =>
-    archetypesData.find(a => a.id === route.params.id as string) ?? null
+    archetypesData.find(a => a.id === route.params.id) ?? null
 )
 
 const cardScale = ref(1)
-const captureTarget = ref<HTMLElement | null>(null)
+const captureTarget = ref(null)
 const isCapturing = ref(false)
 
 onMounted(() => {
@@ -116,11 +102,11 @@ onMounted(() => {
     onUnmounted(() => window.removeEventListener('resize', updateScale))
 })
 
-async function getBlob(): Promise<Blob | null> {
+async function getBlob() {
     if (!captureTarget.value || !archetype.value) return null
     isCapturing.value = true
     try {
-        const cardEl = captureTarget.value.firstElementChild as HTMLElement
+        const cardEl = captureTarget.value.firstElementChild
         return await captureElement(cardEl, 1080, 1920)
     } catch (e) {
         console.error('Capture error:', e)
@@ -132,11 +118,11 @@ async function getBlob(): Promise<Blob | null> {
 
 async function handleShare() {
     const blob = await getBlob()
-    if (blob) await shareImage(blob, `arquetipo-${archetype.value!.id}.png`)
+    if (blob) await shareImage(blob, `arquetipo-${archetype.value.id}.png`)
 }
 
 async function handleDownload() {
     const blob = await getBlob()
-    if (blob) downloadImage(blob, `arquetipo-${archetype.value!.id}.png`)
+    if (blob) downloadImage(blob, `arquetipo-${archetype.value.id}.png`)
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
-    <main class="h-[90vh] flex flex-col justify-between gap-6 px-6 md:px-8 py-4 md:py-12">
-        <div class="flex flex-col gap-5 md:gap-7">
+    <main class="flex flex-col justify-between gap-6 px-6 md:px-8 py-4 md:py-12">
+        <div class="main flex flex-col gap-5 md:gap-7">
             <div class="flex flex-col gap-1 md:gap-2">
                 <QuizProgressBar :current="currentIndex" :total="questions.length" />
                 <div class="flex items-center justify-between gap-2 text-xs md:text-xl text-gray-dark">
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <ButtonPrimary :disabled="!selectedOption" class="w-full uppercase" @click="handleNext">
+        <ButtonPrimary :disabled="!selectedOption" class="w-full uppercase footer" @click="handleNext">
             {{ isLastQuestion ? 'Ver resultado' : 'Siguiente' }}
         </ButtonPrimary>
     </main>
@@ -41,7 +41,7 @@ const { playSound } = useSound()
 const questions = questionsData
 const currentIndex = computed(() => quiz.state.value.currentQuestion)
 
-const currentQuestion = computed(() => questions[currentIndex.value])
+const currentQuestion = computed(() => questions[Math.min(currentIndex.value, questions.length - 1)])
 const isLastQuestion = computed(() => currentIndex.value === questions.length - 1)
 const selectedOption = ref(null)
 

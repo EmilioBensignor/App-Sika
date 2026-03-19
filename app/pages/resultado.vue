@@ -1,6 +1,6 @@
 <template>
-    <main class="min-h-[90vh] flex flex-col justify-between items-center gap-6 md:gap-12 px-5 md:px-8 py-8 md:py-12">
-        <div class="flex flex-col items-center gap-8 md:gap-12">
+    <main class="flex flex-col justify-between items-center gap-6 md:gap-12 px-5 md:px-8 py-8 md:py-12">
+        <div class="main flex flex-col items-center gap-8 md:gap-12">
             <p class="text-xs md:text-2xl text-gray-dark">{{ quiz.state.value.userData?.nombre }}, sos un...</p>
             <div class="flex flex-col items-center text-center gap-4">
                 <p class="text-[2.5rem]">{{ archetype.emoji }}</p>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <button @click="handleReset"
-            class="flex justify-center items-center gap-2 text-sm md:text-[2rem] text-gray-dark font-semibold uppercase">
+            class="footer flex justify-center items-center gap-2 text-sm md:text-[2rem] text-gray-dark font-semibold uppercase">
             <Icon name="material-symbols:refresh-rounded" class="w-5 md:w-7 h-5 md:h-7" />
             Volver a jugar
         </button>
@@ -70,7 +70,6 @@
         @close="showShareModal = false"
     />
 
-    <!-- Off-screen ResultCard for html2canvas capture -->
     <div
         ref="captureContainerRef"
         style="position: absolute; left: -9999px; top: 0; pointer-events: none;"

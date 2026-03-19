@@ -15,7 +15,6 @@
         overflow: hidden;
         gap: 64px;
     ">
-        <!-- Top: brand logos -->
         <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
             <img
                 src="/images/Logo-Sika.svg"
@@ -39,10 +38,8 @@
             </div>
         </div>
 
-        <!-- Main content -->
         <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 48px; width: 100%;">
 
-            <!-- User name — only in full variant -->
             <p
                 v-if="variant === 'full' && userName"
                 style="font-size: 40px; color: #8C8C8C; font-weight: 400; margin: 0;"
@@ -50,7 +47,6 @@
                 {{ userName }}, sos un...
             </p>
 
-            <!-- Emoji + archetype name + claim -->
             <div style="display: flex; flex-direction: column; align-items: center; gap: 24px;">
                 <p style="font-size: 140px; line-height: 1; margin: 0;">{{ archetype.emoji }}</p>
 
@@ -72,7 +68,6 @@
                     margin: 0;
                 ">"{{ archetype.claim }}"</p>
 
-                <!-- Description — only in full variant -->
                 <p
                     v-if="variant === 'full'"
                     style="
@@ -86,23 +81,22 @@
                 >{{ archetype.description }}</p>
             </div>
 
-            <!-- Strengths -->
             <div style="display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%;">
                 <p style="font-size: 28px; color: #8C8C8C; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 0;">
                     Tus fortalezas
                 </p>
-                <div style="display: block; text-align: center; width: 100%;">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 16px; width: 100%; flex-wrap: wrap;">
                     <span
                         v-for="strength in archetype.strengths"
                         :key="strength"
                         style="
-                            display: inline-block;
+                            display: flex;
+                            align-items: center;
                             background-color: rgba(162,162,162,0.2);
                             border-radius: 9999px;
                             padding: 10px 36px 10px 10px;
                             font-size: 32px;
                             font-weight: 500;
-                            margin: 8px;
                             white-space: nowrap;
                         "
                     >
@@ -128,22 +122,10 @@
     </div>
 </template>
 
-<script setup lang="ts">
-interface Archetype {
-    id: string
-    emoji: string
-    name: string
-    claim: string
-    description: string
-    strengths: string[]
-}
-
-withDefaults(defineProps<{
-    archetype: Archetype
-    userName?: string
-    variant?: 'full' | 'minimal'
-}>(), {
-    userName: '',
-    variant: 'full',
+<script setup>
+const props = defineProps({
+    archetype: { type: Object, required: true },
+    userName: { type: String, default: '' },
+    variant: { type: String, default: 'full' },
 })
 </script>
