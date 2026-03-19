@@ -15,31 +15,31 @@
         overflow: hidden;
         gap: 64px;
     ">
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 16px;">
             <img
                 src="/images/resultado/Logo-Sika.png"
                 alt="Sika"
                 crossorigin="anonymous"
-                width="200"
-                height="200"
-                style="width: 200px; height: 200px; object-fit: contain;"
+                width="100"
+                height="100"
+                style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 16px;"
             />
-            <div style="display: flex; align-items: center; gap: 48px;">
+            <div style="display: flex; align-items: center;">
                 <img
                     src="/images/resultado/Logo-Klaukol.png"
                     alt="Klaukol"
                     crossorigin="anonymous"
-                    width="369"
-                    height="90"
-                    style="width: 369px; height: 90px; object-fit: contain;"
+                    width="160"
+                    height="40"
+                    style="width: 160px; height: 40px; object-fit: contain; margin-right: 48px;"
                 />
                 <img
                     src="/images/resultado/Logo-Revear.png"
                     alt="Revear"
                     crossorigin="anonymous"
-                    width="441"
-                    height="90"
-                    style="width: 441px; height: 90px; object-fit: contain;"
+                    width="180"
+                    height="40"
+                    style="width: 180px; height: 40px; object-fit: contain;"
                 />
             </div>
         </div>
@@ -121,7 +121,7 @@
                                 <path d="M5 13l4 4L19 7" stroke="#161616" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
-                        <span style="margin-left: 14px;">{{ strength }}</span>
+                        <span style="margin-left: 14px; margin-top: -4px;">{{ strength }}</span>
                     </span>
                 </div>
             </div>
